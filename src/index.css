@@ -1,0 +1,329 @@
+/* @import "details.css";
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One"); */
+
+/*Typography
+--------------------------------------------------------------*/
+/* body,
+button,
+input,
+select,
+textarea {
+  color: #404040;
+  font-family: 'Comfortaa', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Patua One', serif;
+  letter-spacing: 2px;
+} */
+
+/*--
+	Universal selector and psuedo selectors for inserting content before or after any element.
+	1. Use border-box over default content-box for box model.	
+--*/
+*, *:before, *:after{
+	-moz-box-sizing:border-box;			/*1*/
+	-webkit-box-sizing:border-box;		/*1*/
+	box-sizing:border-box;				/*1*/
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.playground {
+  height: auto;
+  width: 860px;
+  margin: 0 auto;
+}
+
+.boxes {
+  margin: auto;
+  width: 155px;
+  height: 75px;
+  border: 2px solid rgb(0, 0, 0);
+  /* border: 0px solid green; */
+  /* -webkit-box-shadow: 0 0 20px green;
+  -moz-box-shadow: 0 0 20px green;
+  box-shadow: 0 0 20px green; */
+}
+
+.cover {
+  margin-top: 24px;
+  margin-left: 28px;
+  width: 235px;
+  height: 300px;
+}
+
+.player {
+  position: absolute;
+  width: 155px;
+  height: 75px;
+}
+
+#one {
+  float: left;
+  margin-top: 5px;
+  margin-left: 30%;
+}
+
+#two {
+  float: right;
+  margin-top: 5px;
+  margin-right: 30%;
+}
+
+#three {
+  float: left;
+  margin-top: 35px;
+  margin-left: 15%;
+}
+
+#four {
+  float: right;
+  margin-top: 35px;
+  margin-right: 15%;
+}
+
+#five {
+  float: left;
+  margin-top: 35px;
+  margin-left: 5%;
+  clear: both;
+}
+
+#six {
+  float: right;
+  margin-top: 35px;
+  margin-right: 5%;
+}
+
+#seven {
+  float: left;
+  margin-top: 35px;
+  margin-left: 15%;
+  clear: both;
+}
+
+#eight {
+  float: right;
+  margin-top: 35px;
+  margin-right: 15%;
+}
+
+#nine {
+  float: left;
+  margin-top: 35px;
+  margin-left: 30%;
+}
+
+#ten {
+  float: right;
+  margin-top: 35px;
+  margin-right: 30%;
+}
+
+#div1 {
+  clear: both;
+  cursor: grab;
+  cursor: -webkit-grab;
+  margin: auto;
+  width: 155px;
+  height: 75px;
+  border: 2px solid rgb(0, 0, 0);
+  /* border: 1px solid red;
+  -webkit-animation: pusate 0.5s infinite alternate;
+  -moz-animation: pusate 0.5s infinite alternate;
+  -animation: pusate 0.5s infinite alternate; */
+}
+
+/* Media Queries for Playground */
+/*mobile style*/
+@media only screen and (max-width: 480px) {
+  .playground {
+    width: 320px;
+  }
+  .div {
+    width: 60px;
+    height: 30px;
+  }
+  #cover img {
+    width: 72px;
+    height: 90px;
+    margin-top: 30px;
+    margin-left: 15px;
+  }
+  .player {
+    width: 60px;
+    height: 30px;
+  }
+  #div1 {
+    display: none;
+  }
+  #three,
+  #four,
+  #five,
+  #six,
+  #seven,
+  #eight,
+  #nine,
+  #ten {
+    margin-top: 15px;
+  }
+  #info {
+    display: none;
+  }
+  .transbox {
+    margin-top: 75px;
+    background-color: black;
+  }
+  .blackbox {
+    width: 100%;
+  }
+  #total_price {
+    display: none;
+  }
+  #box1,
+  #box2 {
+    display: none;
+  }
+  #box3:before {
+    content: 'To place bids use Desktop or Laptop devices!';
+  }
+}
+/*tablet style*/
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .playground {
+    width: 700px;
+  }
+  .div {
+    width: 125px;
+    height: 63px;
+  }
+  #cover img {
+    width: 180px;
+    height: 220px;
+    margin-top: 40px;
+    margin-left: 30px;
+  }
+  .player {
+    width: 125px;
+    height: 60px;
+  }
+  #div1 {
+    display: none;
+  }
+  #three,
+  #four,
+  #five,
+  #six,
+  #seven,
+  #eight,
+  #nine,
+  #ten {
+    margin-top: 30px;
+  }
+  #info {
+    display: none;
+  }
+  .transbox {
+    margin-top: 175px;
+    background-color: black;
+  }
+  .blackbox {
+    width: 100%;
+  }
+  #total_price {
+    display: none;
+  }
+  #box1,
+  #box2 {
+    display: none;
+  }
+  #box3:before {
+    content: 'To place bids use Desktop or Laptop devices!';
+  }
+}
+
+/* Pulse class and keyframe animation */
+@-webkit-keyframes pusate {
+  from {
+    box-shadow: 0 0 5px red;
+  }
+  to {
+    box-shadow: 0 0 30px red;
+  }
+}
+@-moz-keyframes pusate {
+  from {
+    box-shadow: 0 0 5px red;
+  }
+  to {
+    box-shadow: 0 0 30px red;
+  }
+}
+@keyframes pusate {
+  from {
+    box-shadow: 0 0 5px red;
+  }
+  to {
+    box-shadow: 0 0 30px red;
+  }
+}
+
+.item-1 {
+  background-color: #90dda7;
+}
+
+.users {
+  margin: 0px auto;
+}
+
+.info {
+  text-align: center;
+}
+
+#info {
+  font-size: 18px;
+  margin-top: 120px;
+  text-align: center;
+}
+
+#box1 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 9px;
+  width: 300px;
+  text-align: center;
+  color: #396;
+  font-weight: 100;
+  font-size: 25px;
+}
+
+#box2 {
+  text-shadow: 0px 14px 10px rgba(0, 0, 0, 0.15),
+    0px 24px 2px rgba(0, 0, 0, 0.1), 0px 34px 30px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 35px;
+  margin-top: 10px;
+  width: 700px;
+  text-align: center;
+  font-size: 25px;
+}
+
+#box3 {
+  text-align: center;
+  margin-top: 10px;
+}
