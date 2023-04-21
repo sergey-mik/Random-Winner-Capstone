@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import credit from '../../img/dollar.png'
 import bids from '../../img/bid.png'
@@ -16,13 +16,11 @@ export const PlayGround = () => {
     cellOrder: '',
   })
 
-  const [reducerValue, forceUpdate] = useReducer((x) => x + 1, 0)
-
   const localRandomUser = localStorage.getItem('random_user')
   const randomUserObject = JSON.parse(localRandomUser)
 
   //----------------- get product from JSON ---------->
-  useEffect(() => {
+  const getProducts = () => {
     fetch(
       `http://localhost:8088/products?_embed=productBids&productBidId=${productId}`
     )
@@ -31,7 +29,11 @@ export const PlayGround = () => {
         const productObject = data[0]
         updateProduct(productObject)
       })
-  }, [productId, reducerValue])
+  }
+
+  useEffect(() => {
+    getProducts()
+  }, [productId])
 
   //------------------ post bids to product ------------------->
   const postBidsToAPIOnDrop = () => {
@@ -52,7 +54,7 @@ export const PlayGround = () => {
     })
       .then((response) => response.json())
       .then(() => {
-        forceUpdate()
+        getProducts()
       })
   }
 
@@ -60,9 +62,6 @@ export const PlayGround = () => {
   const handleOnDragStart = (evt) => {
     // console.log("start", evt);
     evt.dataTransfer.setData('image', evt.target.id)
-
-    //   console.log(
-    //     "ProductList() :: handleOnDragStart() :: evt.target.name=" + evt.target.name + " evt.target.value=" + evt.target.value);
   }
 
   const handleOnDragOver = (evt) => {
@@ -77,8 +76,6 @@ export const PlayGround = () => {
       // evt.target.style.border = '1px solid red'
     }
     evt.dataTransfer.dropEffect = 'move'
-
-    // console.log('ProductList() :: handleOnDragOver() :: evt.target.name=' + evt.target.name +' evt.target.value=' + evt.target.value)
   }
 
   const handleDragLeave = (evt) => {
@@ -101,9 +98,6 @@ export const PlayGround = () => {
       const div = evt.target.id
       console.log('div', div)
     }
-
-    // console.log(
-    //   'ProductList() :: handleOnDrop() :: evt.target.name=' + evt.target.name + ' evt.target.value=' + evt.target.value)
   }
 
   // ----Random Pick------>
@@ -157,13 +151,24 @@ export const PlayGround = () => {
     // add timeLeft as a dependency to re-rerun the effect when we update it
   }, [timeLeft])
 
+  // money spent calculation
+  const MoneySpent = () => {
+    if (userBids) {
+      return (
+        <div>Money Spent: ${(product.price / 10) * (userBids.length - 1)}</div>
+      )
+    }
+  }
+
+  const CreditCost = () => {
+    if (product.id) {
+      return <div>One Credit = ${product.price / 10}</div>
+    }
+  }
+
   // place "used" image once credit is droped
   const cells = product.productBids?.map((cell) => {
     return cell.cellOrder
-  })
-
-  const users = product.productBids?.map((cell) => {
-    return cell.userId
   })
 
   const userBids = product.productBids?.map((cell) => {
@@ -172,144 +177,10 @@ export const PlayGround = () => {
     }
   })
 
-  // money spent calculation
-  const MoneySpent = () => {
-    if (userBids) {
-    return <div>Money Spent: ${product.price / 10 + users}</div>
-    }
-  }
-  console.log(product.userId)
-
   // loads credit and used images inside appropriate cells
-  const CellOne = () => {
-    if (product.id && cells.includes('one')) {
-      if (userBids.includes('one')) {
-        return (
-          <img src={credit} alt="taken" className="player" draggable="false" />
-        )
-      } else {
-        return (
-          <img src={bids} alt="taken" className="player" draggable="false" />
-        )
-      }
-    }
-  }
-
-  const CellTwo = () => {
-    if (product.id && cells.includes('two')) {
-      if (userBids.includes('two')) {
-        return (
-          <img src={credit} alt="taken" className="player" draggable="false" />
-        )
-      } else {
-        return (
-          <img src={bids} alt="taken" className="player" draggable="false" />
-        )
-      }
-    }
-  }
-
-  const CellThree = () => {
-    if (product.id && cells.includes('three')) {
-      if (userBids.includes('three')) {
-        return (
-          <img src={credit} alt="taken" className="player" draggable="false" />
-        )
-      } else {
-        return (
-          <img src={bids} alt="taken" className="player" draggable="false" />
-        )
-      }
-    }
-  }
-
-  const CellFour = () => {
-    if (product.id && cells.includes('four')) {
-      if (userBids.includes('four')) {
-        return (
-          <img src={credit} alt="taken" className="player" draggable="false" />
-        )
-      } else {
-        return (
-          <img src={bids} alt="taken" className="player" draggable="false" />
-        )
-      }
-    }
-  }
-
-  const CellFive = () => {
-    if (product.id && cells.includes('five')) {
-      if (userBids.includes('five')) {
-        return (
-          <img src={credit} alt="taken" className="player" draggable="false" />
-        )
-      } else {
-        return (
-          <img src={bids} alt="taken" className="player" draggable="false" />
-        )
-      }
-    }
-  }
-
-  const CellSix = () => {
-    if (product.id && cells.includes('six')) {
-      if (userBids.includes('six')) {
-        return (
-          <img src={credit} alt="taken" className="player" draggable="false" />
-        )
-      } else {
-        return (
-          <img src={bids} alt="taken" className="player" draggable="false" />
-        )
-      }
-    }
-  }
-
-  const CellSeven = () => {
-    if (product.id && cells.includes('seven')) {
-      if (userBids.includes('seven')) {
-        return (
-          <img src={credit} alt="taken" className="player" draggable="false" />
-        )
-      } else {
-        return (
-          <img src={bids} alt="taken" className="player" draggable="false" />
-        )
-      }
-    }
-  }
-
-  const CellEight = () => {
-    if (product.id && cells.includes('eight')) {
-      if (userBids.includes('eight')) {
-        return (
-          <img src={credit} alt="taken" className="player" draggable="false" />
-        )
-      } else {
-        return (
-          <img src={bids} alt="taken" className="player" draggable="false" />
-        )
-      }
-    }
-  }
-
-  const CellNine = () => {
-    if (product.id && cells.includes('nine')) {
-      if (userBids.includes('nine')) {
-        return (
-          <img src={credit} alt="taken" className="player" draggable="false" />
-        )
-      } else {
-        return (
-          <img src={bids} alt="taken" className="player" draggable="false" />
-        )
-      }
-    }
-  }
-
-  const CellTen = () => {
-    if (product.id && cells.includes('ten')) {
-      if (userBids.includes('ten')) {
+  const Cell = ({ num }) => {
+    if (product.id && cells.includes(num)) {
+      if (userBids.includes(num)) {
         return (
           <img src={credit} alt="taken" className="player" draggable="false" />
         )
@@ -343,7 +214,7 @@ export const PlayGround = () => {
           onDragLeave={(evt) => handleDragLeave(evt)}
           onDrop={handleOnDrop}
         >
-          <CellOne />
+          <Cell num="one" />
         </div>
         <div
           className="boxes"
@@ -352,7 +223,7 @@ export const PlayGround = () => {
           onDragLeave={(evt) => handleDragLeave(evt)}
           onDrop={handleOnDrop}
         >
-          <CellTwo />
+          <Cell num="two" />
         </div>
         <div
           className="boxes"
@@ -361,7 +232,7 @@ export const PlayGround = () => {
           onDragLeave={(evt) => handleDragLeave(evt)}
           onDrop={handleOnDrop}
         >
-          <CellThree />
+          <Cell num="three" />
         </div>
         <div
           className="boxes"
@@ -370,7 +241,7 @@ export const PlayGround = () => {
           onDragLeave={(evt) => handleDragLeave(evt)}
           onDrop={handleOnDrop}
         >
-          <CellFour />
+          <Cell num="four" />
         </div>
         <div
           className="boxes"
@@ -379,7 +250,7 @@ export const PlayGround = () => {
           onDragLeave={(evt) => handleDragLeave(evt)}
           onDrop={handleOnDrop}
         >
-          <CellFive />
+          <Cell num="five" />
         </div>
         <div
           className="boxes"
@@ -388,7 +259,7 @@ export const PlayGround = () => {
           onDragLeave={(evt) => handleDragLeave(evt)}
           onDrop={handleOnDrop}
         >
-          <CellSix />
+          <Cell num="six" />
         </div>
         <div
           className="boxes"
@@ -397,7 +268,7 @@ export const PlayGround = () => {
           onDragLeave={(evt) => handleDragLeave(evt)}
           onDrop={handleOnDrop}
         >
-          <CellSeven />
+          <Cell num="seven" />
         </div>
         <div
           className="boxes"
@@ -406,7 +277,7 @@ export const PlayGround = () => {
           onDragLeave={(evt) => handleDragLeave(evt)}
           onDrop={handleOnDrop}
         >
-          <CellEight />
+          <Cell num="eight" />
         </div>
         <div
           className="boxes"
@@ -415,7 +286,7 @@ export const PlayGround = () => {
           onDragLeave={(evt) => handleDragLeave(evt)}
           onDrop={handleOnDrop}
         >
-          <CellNine />
+          <Cell num="nine" />
         </div>
         <div
           className="boxes"
@@ -424,7 +295,7 @@ export const PlayGround = () => {
           onDragLeave={(evt) => handleDragLeave(evt)}
           onDrop={handleOnDrop}
         >
-          <CellTen />
+          <Cell num="ten" />
         </div>
 
         <div id="cover">
@@ -468,6 +339,7 @@ export const PlayGround = () => {
         </div>
         <div id="box2">DO not spend MORE than you can afford to LOSE!</div>
         <div id="box3">
+          <CreditCost />
           <MoneySpent />
         </div>
       </div>

@@ -1,8 +1,7 @@
-import { Outlet, Route, Routes } from "react-router-dom"
-import { ProductContainer } from "../products/ProductContainer"
-import { PlayGround } from "../products/PlayGround"
-import { AddProduct } from "../employee/AddProduct"
-
+import { Outlet, Route, Routes } from 'react-router-dom'
+import { ProductContainer } from '../products/ProductContainer'
+import { PlayGround } from '../playground/PlayGround'
+import { AddProduct } from '../employee/AddProduct'
 
 export const EmployeeViews = () => {
   return (

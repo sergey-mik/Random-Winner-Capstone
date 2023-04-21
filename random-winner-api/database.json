@@ -31,7 +31,7 @@
   "products": [
     {
       "id": 1,
-      "userId": 1,
+      "userId": 2,
       "productBidId": 1,
       "coverImage": "/images/assassin's-creed-IV-black-flag-xbox1.jpg",
       "name": "Assassin's Creed IV Black Flag (Xbox One)",
@@ -41,12 +41,12 @@
     },
     {
       "id": 2,
-      "userId": 1,
+      "userId": 2,
       "productBidId": 2,
       "coverImage": "/images/batman-arkham-knight-ps4.jpg",
       "name": "Batman Arkham Knight (PS4)",
       "condition": "Vero est adipisci sed natus quasi consectetur occaecati. Modi maxime sunt officia cumque.",
-      "price": 10.25,
+      "price": 10,
       "openCells": 10
     },
     {
@@ -62,122 +62,60 @@
   ],
   "productBids": [
     {
+      "userId": 1,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 1,
+      "cellOrder": "nine",
+      "id": 1
+    },
+    {
       "userId": 2,
-      "name": "Rage",
-      "productId": 2,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 1,
+      "cellOrder": "eight",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 1,
+      "cellOrder": "ten",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 1,
       "cellOrder": "seven",
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "name": "Call Of Duty Ghosts (Xbox One)",
+      "productId": 3,
+      "cellOrder": "seven",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 1,
+      "cellOrder": "six",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 1,
+      "cellOrder": "three",
       "id": 7
     },
     {
       "userId": 1,
-      "name": "Rage",
+      "name": "Batman Arkham Knight (PS4)",
       "productId": 2,
-      "cellOrder": "six",
+      "cellOrder": "ten",
       "id": 8
-    },
-    {
-      "userId": 2,
-      "name": "Rage",
-      "productId": 2,
-      "cellOrder": "nine",
-      "id": 9
-    },
-    {
-      "userId": 2,
-      "name": "Rage",
-      "productId": 2,
-      "cellOrder": "ten",
-      "id": 10
-    },
-    {
-      "userId": 2,
-      "name": "Rage",
-      "productId": 2,
-      "cellOrder": "five",
-      "id": 11
-    },
-    {
-      "userId": 2,
-      "name": "Rage",
-      "productId": 2,
-      "cellOrder": "eight",
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "name": "Rage",
-      "productId": 2,
-      "cellOrder": "one",
-      "id": 13
-    },
-    {
-      "userId": 1,
-      "name": "Assassin's Creed IV Black Flag",
-      "productId": 1,
-      "cellOrder": "four",
-      "id": 14
-    },
-    {
-      "userId": 2,
-      "name": "Assassin's Creed IV Black Flag",
-      "productId": 1,
-      "cellOrder": "one",
-      "id": 15
-    },
-    {
-      "userId": 1,
-      "name": "Assassin's Creed IV Black Flag",
-      "productId": 1,
-      "cellOrder": "two",
-      "id": 16
-    },
-    {
-      "userId": 1,
-      "name": "Assassin's Creed IV Black Flag",
-      "productId": 1,
-      "cellOrder": "five",
-      "id": 17
-    },
-    {
-      "userId": 1,
-      "name": "Assassin's Creed IV Black Flag",
-      "productId": 1,
-      "cellOrder": "eight",
-      "id": 18
-    },
-    {
-      "userId": 1,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 3,
-      "id": 19
-    },
-    {
-      "userId": 1,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 3,
-      "cellOrder": "five",
-      "id": 20
-    },
-    {
-      "userId": 1,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 1,
-      "cellOrder": "seven",
-      "id": 21
-    },
-    {
-      "userId": 1,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 1,
-      "cellOrder": "ten",
-      "id": 22
-    },
-    {
-      "userId": 1,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 1,
-      "cellOrder": "six",
-      "id": 23
     }
   ]
 }

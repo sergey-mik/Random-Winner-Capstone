@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Product } from './Product'
 import './Products.css'
 
 export const ProductList = ({ searchTermState }) => {
@@ -20,12 +20,16 @@ export const ProductList = ({ searchTermState }) => {
   }, [searchTermState])
 
   //----------------- get product from JSON ---------->
-  useEffect(() => {
+  const getAllProducts = () => {
     fetch(`http://localhost:8088/products`)
       .then((response) => response.json())
       .then((productArray) => {
         setProducts(productArray)
       })
+  }
+
+  useEffect(() => {
+    getAllProducts()
   }, [])
 
   //----------------- filter users and customers ---------->
@@ -42,24 +46,19 @@ export const ProductList = ({ searchTermState }) => {
     }
   }, [products])
 
-
   return (
     <>
       <h2>List of Products</h2>
 
       <article className="products">
-        {filteredProducts.map((product) => {
-          return (
-            <section className="product" key={product.id}>
-              <Link className="product_header" to={`/products/${product.id}`}>
-                {product.name}
-              </Link>
-              <div className="product_description">{product.condition}</div>
-              <div className="product_cells">Open Cells: {product.openCells}</div>
-              <div className="product_price">Price: ${product.price}</div>
-            </section>
-          )
-        })}
+        {filteredProducts.map((product) => (
+          <Product
+            isStaff={randomUserObject.staff}
+            key={`ticket--${product.id}`}
+            getAllProducts={getAllProducts}
+            productObject={product}
+          />
+        ))}
       </article>
     </>
   )
