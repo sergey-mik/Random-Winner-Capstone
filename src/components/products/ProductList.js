@@ -21,7 +21,7 @@ export const ProductList = ({ searchTermState }) => {
 
   //----------------- get product from JSON ---------->
   const getAllProducts = () => {
-    fetch(`http://localhost:8088/products`)
+    fetch(`http://localhost:8088/products?_embed=productBids`)
       .then((response) => response.json())
       .then((productArray) => {
         setProducts(productArray)

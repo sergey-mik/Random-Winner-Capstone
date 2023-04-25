@@ -36,8 +36,7 @@
       "coverImage": "/images/assassin's-creed-IV-black-flag-xbox1.jpg",
       "name": "Assassin's Creed IV Black Flag (Xbox One)",
       "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
-      "price": "15",
-      "openCells": 10
+      "price": 15
     },
     {
       "id": 2,
@@ -46,8 +45,7 @@
       "coverImage": "/images/batman-arkham-knight-ps4.jpg",
       "name": "Batman Arkham Knight (PS4)",
       "condition": "Vero est adipisci sed natus quasi consectetur occaecati. Modi maxime sunt officia cumque.",
-      "price": 10,
-      "openCells": 10
+      "price": 10
     },
     {
       "userId": 2,
@@ -56,7 +54,6 @@
       "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
       "productBidId": 3,
       "price": 19,
-      "openCells": 10,
       "id": 3
     }
   ],
@@ -65,57 +62,22 @@
       "userId": 1,
       "name": "Assassin's Creed IV Black Flag (Xbox One)",
       "productId": 1,
-      "cellOrder": "nine",
-      "id": 1
-    },
-    {
-      "userId": 2,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 1,
-      "cellOrder": "eight",
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 1,
       "cellOrder": "ten",
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 1,
-      "cellOrder": "seven",
-      "id": 4
-    },
-    {
-      "userId": 2,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 3,
-      "cellOrder": "seven",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 1,
-      "cellOrder": "six",
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 1,
-      "cellOrder": "three",
-      "id": 7
+      "id": 1
     },
     {
       "userId": 1,
       "name": "Batman Arkham Knight (PS4)",
       "productId": 2,
-      "cellOrder": "ten",
-      "id": 8
+      "cellOrder": "five",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 2,
+      "cellOrder": "six",
+      "id": 3
     }
   ]
 }

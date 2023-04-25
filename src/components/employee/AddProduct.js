@@ -8,8 +8,7 @@ export const AddProduct = () => {
     coverImage: '',
     condition: '',
     productBidId: '',
-    price: '',
-    openCells: 10,
+    price: ''
   })
 
   const localRandomUser = localStorage.getItem('random_user')
@@ -24,8 +23,7 @@ export const AddProduct = () => {
       coverImage: addProduct.coverImage,
       condition: addProduct.condition,
       productBidId: addProduct.productBidId,
-      price: addProduct.price,
-      openCells: addProduct.openCells,
+      price: addProduct.price
     }
 
     //----------------- POST product to the API ---------->

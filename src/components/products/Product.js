@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export const Product = ({ productObject, isStaff, getAllProducts }) => {
+export const Product = ({ productObject, isStaff, getAllProducts, updateOpenCells }) => {
 
   const deleteButton = () => {
     return (
@@ -15,6 +15,8 @@ export const Product = ({ productObject, isStaff, getAllProducts }) => {
     )
   }
 
+// console.log(productObject.productBids.length)
+
   return (
     <section className="product">
       <header className="product_header">
@@ -25,8 +27,8 @@ export const Product = ({ productObject, isStaff, getAllProducts }) => {
         }
       </header>
       <div className="product_description">{productObject.condition}</div>
-      <div className="product_cells">Open Cells: {productObject.openCells}</div>
-      <div className="product_price">Price: ${productObject.price}</div>
+      <div className="product_cells">Open Cells: {10 - productObject.productBids.length}</div>
+      <div className="product_price">Price: ${productObject.price / 10}</div>
       <div>
         {
         isStaff 

@@ -5,7 +5,7 @@ import bids from '../../img/bid.png'
 import counter from '../../img/random.gif'
 
 export const PlayGround = () => {
-  const [product, updateProduct] = useState({})
+  const [product, postToProduct] = useState({})
   const [timeLeft, setTimeLeft] = useState(null)
   const { productId } = useParams()
   // const ref = useRef(null)
@@ -27,7 +27,7 @@ export const PlayGround = () => {
       .then((response) => response.json())
       .then((data) => {
         const productObject = data[0]
-        updateProduct(productObject)
+        postToProduct(productObject)
       })
   }
 
@@ -61,15 +61,15 @@ export const PlayGround = () => {
   // --------------- Handle Drag and Drop --------->
   const handleOnDragStart = (evt) => {
     // console.log("start", evt);
-    evt.dataTransfer.setData('image', evt.target.id)
+    evt.dataTransfer.setData('credit', evt.target.id)
   }
 
   const handleOnDragOver = (evt) => {
     evt.preventDefault()
 
-    const copy = { ...product }
-    copy.cellOrder = evt.target.id
-    update(copy)
+    const copyCellOrder = { ...product }
+    copyCellOrder.cellOrder = evt.target.id
+    update(copyCellOrder)
 
     if (evt.target.className === 'boxes') {
       document.getElementById('box1').innerHTML = 'Excellent choice!'
@@ -90,13 +90,11 @@ export const PlayGround = () => {
     postBidsToAPIOnDrop(evt)
 
     if (navigator.onLine === true) {
-      const data = evt.dataTransfer.getData('image')
-      console.log('data', data)
+      const data = evt.dataTransfer.getData('credit')
+      console.log(data)
       // evt.target.style.animation = 'pusate .5s infinite alternate'
       document.getElementById('box1').innerHTML = 'Place more bids!'
       evt.target.style.border = ''
-      const div = evt.target.id
-      console.log('div', div)
     }
   }
 
@@ -152,25 +150,21 @@ export const PlayGround = () => {
   }, [timeLeft])
 
   // money spent calculation
-  const MoneySpent = () => {
-    if (userBids) {
-      return (
-        <div>Money Spent: ${(product.price / 10) * (userBids.length - 1)}</div>
-      )
-    }
-  }
+  // const MoneySpent = () => {
+  //   if (userBids) {
+  //     return (
+  //       <div>Money Spent: ${(product.price / 10) * (userBids.length - 1)}</div>
+  //     )
+  //   }
+  // }
 
-  const CreditCost = () => {
-    if (product.id) {
-      return <div>One Credit = ${product.price / 10}</div>
-    }
-  }
+  const CreditCost = () => <div>One Credit = ${product.price / 10}</div>
 
   // place "used" image once credit is droped
   const cells = product.productBids?.map((cell) => {
     return cell.cellOrder
   })
-
+  // compare current user and the one already placed bids
   const userBids = product.productBids?.map((cell) => {
     if (cell.userId === randomUserObject.id) {
       return cell.cellOrder
@@ -309,18 +303,8 @@ export const PlayGround = () => {
 
         <h3 id="info">Your credit</h3>
 
-        {/* <!-- Player's Box --> */}
+        {/* <!-- Player's Cell --> */}
         <div id="div1">
-          {/* <img className="player" src={credit} alt="credit" draggable="true" ondragstart="drag(event)" id="credit10"  name="credit.png"/>
-        <img className="player" src={credit} alt="credit" draggable="true" ondragstart="drag(event)" id="credit9"  name="credit.png"/>
-            <img className="player" src={credit} alt="credit" draggable="true" ondragstart="drag(event)" id="credit8"  name="credit.png"/>
-                <img className="player" src={credit} alt="credit" draggable="true" ondragstart="drag(event)" id="credit7"  name="credit.png"/>
-                    <img className="player" src={credit} alt="credit" draggable="true" ondragstart="drag(event)" id="credit6"  name="credit.png"/>
-                    <img className="player" src={credit} alt="credit" draggable="true" ondragstart="drag(event)" id="credit5"  name="credit.png"/>
-                <img className="player" src={credit} alt="credit" draggable="true" ondragstart="drag(event)" id="credit4"  name="credit.png"/>
-            <img className="player" src={credit} alt="credit" draggable="true" ondragstart="drag(event)" id="credit3"  name="credit.png"/>
-        <img className="player" src={credit} alt="credit" draggable="true" ondragstart="drag(event)" id="credit2"  name="credit.png"/> */}
-
           <img
             className="player"
             src={credit}
@@ -340,7 +324,7 @@ export const PlayGround = () => {
         <div id="box2">DO not spend MORE than you can afford to LOSE!</div>
         <div id="box3">
           <CreditCost />
-          <MoneySpent />
+          {/* <MoneySpent /> */}
         </div>
       </div>
     </>
