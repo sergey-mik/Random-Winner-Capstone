@@ -30,22 +30,24 @@
   ],
   "products": [
     {
-      "id": 1,
-      "userId": 2,
-      "productBidId": 1,
-      "coverImage": "/images/assassin's-creed-IV-black-flag-xbox1.jpg",
+      "userId": 1,
       "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "coverImage": "/images/assassin's-creed-IV-black-flag-xbox1.jpg",
       "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
-      "price": 15
+      "productBidId": 1,
+      "price": 15,
+      "productWon": "",
+      "id": 1
     },
     {
-      "id": 2,
-      "userId": 2,
-      "productBidId": 2,
-      "coverImage": "/images/batman-arkham-knight-ps4.jpg",
+      "userId": 1,
       "name": "Batman Arkham Knight (PS4)",
+      "coverImage": "/images/batman-arkham-knight-ps4.jpg",
       "condition": "Vero est adipisci sed natus quasi consectetur occaecati. Modi maxime sunt officia cumque.",
-      "price": 10
+      "productBidId": 2,
+      "price": 10,
+      "productWon": "five",
+      "id": 2
     },
     {
       "userId": 2,
@@ -54,30 +56,80 @@
       "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
       "productBidId": 3,
       "price": 19,
+      "productWon": "",
       "id": 3
     }
   ],
   "productBids": [
     {
       "userId": 1,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 1,
-      "cellOrder": "ten",
-      "id": 1
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 2,
+      "cellOrder": "one",
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 2,
+      "cellOrder": "two",
+      "id": 4
     },
     {
       "userId": 1,
       "name": "Batman Arkham Knight (PS4)",
       "productId": 2,
-      "cellOrder": "five",
-      "id": 2
+      "cellOrder": "four",
+      "id": 5
     },
     {
       "userId": 1,
       "name": "Batman Arkham Knight (PS4)",
       "productId": 2,
       "cellOrder": "six",
-      "id": 3
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 2,
+      "cellOrder": "five",
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 2,
+      "cellOrder": "nine",
+      "id": 8
+    },
+    {
+      "userId": 2,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 2,
+      "cellOrder": "eight",
+      "id": 9
+    },
+    {
+      "userId": 2,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 2,
+      "cellOrder": "three",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 2,
+      "cellOrder": "seven",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 2,
+      "cellOrder": "ten",
+      "id": 12
     }
   ]
 }

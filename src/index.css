@@ -48,7 +48,7 @@ html {
   margin: 0 auto;
 }
 
-.boxes {
+.cells {
   margin: auto;
   width: 155px;
   height: 75px;
@@ -284,6 +284,9 @@ html {
 
 .item-1 {
   background-color: #90dda7;
+  /* position: absolute; */
+  /* width: 151px;
+  height: 71px; */
 }
 
 .users {

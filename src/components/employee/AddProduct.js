@@ -23,7 +23,8 @@ export const AddProduct = () => {
       coverImage: addProduct.coverImage,
       condition: addProduct.condition,
       productBidId: addProduct.productBidId,
-      price: addProduct.price
+      price: addProduct.price,
+      productWon: false
     }
 
     //----------------- POST product to the API ---------->
