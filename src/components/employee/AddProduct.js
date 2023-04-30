@@ -7,7 +7,6 @@ export const AddProduct = () => {
     name: '',
     coverImage: '',
     condition: '',
-    productBidId: '',
     price: ''
   })
 
@@ -22,9 +21,8 @@ export const AddProduct = () => {
       name: addProduct.name,
       coverImage: addProduct.coverImage,
       condition: addProduct.condition,
-      productBidId: addProduct.productBidId,
       price: addProduct.price,
-      productWon: false
+      productWon: '',
     }
 
     //----------------- POST product to the API ---------->
@@ -104,22 +102,6 @@ export const AddProduct = () => {
             onChange={(evt) => {
               const copy = { ...addProduct }
               copy.price = parseFloat(evt.target.value, 2)
-              update(copy)
-            }}
-          />
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="price">SKU:</label>
-          <input
-            type="number"
-            className="form-control"
-            value={addProduct.productBidId}
-            onChange={(evt) => {
-              const copy = { ...addProduct }
-              copy.productBidId = parseFloat(evt.target.value, 2)
               update(copy)
             }}
           />

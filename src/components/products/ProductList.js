@@ -32,7 +32,7 @@ export const ProductList = ({ searchTermState }) => {
     getAllProducts()
   }, [])
 
-  //----------------- filter users and customers ---------->
+  // ----------------- filter users and customers ---------->
   useEffect(() => {
     if (randomUserObject.staff) {
       // for employees

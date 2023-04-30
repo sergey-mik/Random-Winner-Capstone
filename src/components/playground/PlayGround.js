@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import credit from '../../img/dollar.png'
 import bids from '../../img/bid.png'
-import counter from '../../img/random.gif'
 import won from '../../img/won.gif'
 import lose from '../../img/lose.gif'
 
@@ -10,6 +9,7 @@ export const PlayGround = () => {
   const [product, postToProduct] = useState({})
   const [timeLeft, setTimeLeft] = useState(null)
   const { productId } = useParams()
+  // const [playerBids, setPlayerBids] = useState([])
   // const ref = useRef(null)
   const [dropedd, post] = useState({
     userId: '',
@@ -24,7 +24,7 @@ export const PlayGround = () => {
   //----------------- get product from JSON ---------->
   const getProducts = () => {
     fetch(
-      `http://localhost:8088/products?_embed=productBids&productBidId=${productId}`
+      `http://localhost:8088/products?_embed=productBids&id=${productId}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -60,14 +60,13 @@ export const PlayGround = () => {
       })
   }
 
-  // --------------- Update productWon boolean --------->
+  // --------------- Update productWon in Products --------->
   const updateWonProduct = (winner) => {
     const copy = {
       userId: randomUserObject.id,
       name: product.name,
       coverImage: product.coverImage,
       condition: product.condition,
-      productBidId: product.productBidId,
       price: product.price,
       productWon: winner,
     }
@@ -183,20 +182,34 @@ export const PlayGround = () => {
     return cell.cellOrder
   })
 
-  // compare current user and the one already placed bids.filter(e => !e.selectedFields.includes("Red"))
-  let userBids = (product.productBids?.map((cell) => {
-      if (cell.userId === randomUserObject.id) {
-        return cell.cellOrder
-      }
-    }))
-     //.filter(x => x !== undefined)
+  // useEffect(() => {
+  //   // const filtered = []
+  //   const userBids = product.productBids?.map((cell) => {
+  //       if (cell.userId === randomUserObject.id) {
+  //         return cell.cellOrder
+  //       }
+  //     })
+  //     .filter((x) => x !== undefined)
+  //   setPlayerBids(userBids)
+  // }, [product])
 
-  
-  let notUserBids = product.productBids?.map((cell) => {
+  // compare current user and the one already placed bids
+  const userBids = product.productBids?.map((cell) => {
+    if (cell.userId === randomUserObject.id) {
+      return cell.cellOrder
+    }
+  })
+  .filter((x) => x !== undefined)
+
+
+  const notUserBids = product.productBids?.map((cell) => {
       if (cell.userId !== randomUserObject.id) {
         return cell.cellOrder
       }
-    }).filter((x) => x !== undefined)
+    })
+    .filter((x) => x !== undefined)
+
+  // console.log(notUserBids)
 
   const Credit = () => {
     return <div id="box3">One Credit = ${product.price / 10}</div>

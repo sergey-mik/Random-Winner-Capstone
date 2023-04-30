@@ -12,6 +12,9 @@ export const EmployeeNav = () => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/addProduct">Add Product</Link>
             </li>
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/customerList">List of Customers</Link>
+            </li>
             {
                 localStorage.getItem("random_user")
                     ? <li className="navbar__item navbar__logout">

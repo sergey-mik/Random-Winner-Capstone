@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 
 export const ProfilePage = () => {
-  // TODO: Provide initial state for profile
+  // Provide initial state for profile
   const [profile, updateProfile] = useState({
     address: '',
     phoneNumber: '',
     userId: 0,
   })
-
   const [feedback, setFeedback] = useState('')
 
   const localRandomUser = localStorage.getItem('random_user')
@@ -19,8 +18,8 @@ export const ProfilePage = () => {
       setTimeout(() => setFeedback(''), 3000)
     }
   }, [feedback])
-  
-  // TODO: Get employee profile info from API and update state
+
+  // Get customer profile info from API and update state
   useEffect(() => {
     fetch(`http://localhost:8088/customers?userId=${randomUserObject.id}`)
       .then((response) => response.json())
@@ -44,6 +43,8 @@ export const ProfilePage = () => {
     })
   }
 
+  
+
   return (
     <>
       <div
@@ -63,7 +64,7 @@ export const ProfilePage = () => {
               className="form-control"
               value={profile.address}
               onChange={(evt) => {
-                // TODO: Update address property
+                //Update address property
                 const copy = { ...profile }
                 copy.address = evt.target.value
                 updateProfile(copy)
@@ -79,7 +80,7 @@ export const ProfilePage = () => {
               className="form-control"
               value={profile.phoneNumber}
               onChange={(evt) => {
-                // TODO: Update rate property
+                //Update phone# property
                 const copy = { ...profile }
                 copy.phoneNumber = evt.target.value
                 updateProfile(copy)
