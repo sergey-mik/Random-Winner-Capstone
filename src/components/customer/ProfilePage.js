@@ -56,6 +56,24 @@ export const ProfilePage = () => {
       </div>
       <form className="profile">
         <h2 className="profile__title">Customer Profile</h2>
+
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="specialty">Full Name:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={profile.fullName}
+              onChange={(evt) => {
+                //Update name property
+                const copy = { ...profile }
+                copy.address = evt.target.value
+                updateProfile(copy)
+              }}
+            />
+          </div>
+        </fieldset>
+
         <fieldset>
           <div className="form-group">
             <label htmlFor="specialty">Address:</label>
@@ -72,6 +90,7 @@ export const ProfilePage = () => {
             />
           </div>
         </fieldset>
+
         <fieldset>
           <div className="form-group">
             <label htmlFor="name">Phone Number:</label>
@@ -88,6 +107,24 @@ export const ProfilePage = () => {
             />
           </div>
         </fieldset>
+
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="specialty">Email:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={profile.email}
+              onChange={(evt) => {
+                //Update address property
+                const copy = { ...profile }
+                copy.address = evt.target.value
+                updateProfile(copy)
+              }}
+            />
+          </div>
+        </fieldset>
+
         <button
           onClick={(clickEvent) => {
             handleSaveButtonClick(clickEvent)

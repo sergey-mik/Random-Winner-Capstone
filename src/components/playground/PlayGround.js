@@ -63,7 +63,7 @@ export const PlayGround = () => {
   // --------------- Update productWon in Products --------->
   const updateWonProduct = (winner) => {
     const copy = {
-      userId: randomUserObject.id,
+      userId: product.userId,
       name: product.name,
       coverImage: product.coverImage,
       condition: product.condition,
@@ -183,7 +183,6 @@ export const PlayGround = () => {
   })
 
   // useEffect(() => {
-  //   // const filtered = []
   //   const userBids = product.productBids?.map((cell) => {
   //       if (cell.userId === randomUserObject.id) {
   //         return cell.cellOrder
@@ -218,7 +217,8 @@ export const PlayGround = () => {
   const Money = () => {
     return (
       <div id="box3">
-        Money Spent: ${(product.price / 10) * userBids?.length}
+        Money Spent: $
+        {(product.price / 10) * userBids?.length.toFixed(2)}
       </div>
     )
   }
@@ -277,14 +277,6 @@ export const PlayGround = () => {
 
   return (
     <>
-      <button
-        onClick={(evt) => {
-          evt.preventDefault()
-        }}
-      >
-        Winner
-      </button>
-
       <div>{product.name}</div>
 
       <div className="playground">

@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
 
 export const CustomerList = () => {
-  const [clients, getClients] = useState([])
-  const [products, getProducts] = useState([])
-  const [bids, getBids] = useState([])
+  const [clients, setClients] = useState([])
+  const [products, setProducts] = useState([])
+  const [bids, setBids] = useState([])
 
-    const getAllProducts = () => {
+  const getAllProducts = () => {
     fetch(`http://localhost:8088/products`)
       .then((response) => response.json())
       .then((productObject) => {
-        getProducts(productObject)
+        setProducts(productObject)
       })
   }
 
@@ -18,44 +17,57 @@ export const CustomerList = () => {
     fetch(`http://localhost:8088/productBids`)
       .then((response) => response.json())
       .then((productBidsObject) => {
-        getBids(productBidsObject)
+        setBids(productBidsObject)
       })
   }
 
-    useEffect(
-      () => {
-        getAllProducts()
-        getProductsBids()
-        
-        fetch(`http://localhost:8088/customers`)
-          .then((response) => response.json())
-          .then((employeeArray) => {
-            getClients(employeeArray)
-          })
-      },
-      [] 
-    )   
+  useEffect(() => {
+    getAllProducts()
+    getProductsBids()
 
-    //console.log(bids)
-    console.log(products)
+    fetch(`http://localhost:8088/customers`)
+      .then((response) => response.json())
+      .then((employeeArray) => {
+        setClients(employeeArray)
+      })
+  }, [])
 
+  const ClientInfo = products.map((product) => {
+    if (product.productWon) {
+      bids.map((bid) => {
+        if (bid.productId === product.id) {
+          if (product.productWon === bid.cellOrder) {
+            clients.map((client) => {
+              if (bid.userId === client.userId) {
+                product.wonClientInfo = client
+              }
+            })
+          }
+        }
+      })
+    }
+    return product
+  })
+
+  // console.log(ClientInfo)
   return (
     <>
       <section>
         <h2>Client Activity</h2>
 
         <article className="">
-          {/* <div>Address: {clients?.address}</div>
-          <div>Phone Number: {clients?.phoneNumber}</div> */}
-          <div>
-            {products.map((product) => {
-              
-              // <div>Product Name: {product}</div>
-              if (product.productWon) {
-                return <div>Product Name: {product.name}</div>
-              }
-            })}
-          </div>
+          {ClientInfo.map((product) => {
+            if (product.wonClientInfo) {
+              return (
+                <div key={product.id}>
+                  Product Name: {product.name}
+                  <div>Client Name: {product.wonClientInfo.fullName}</div>
+                  <div>Client Address: {product.wonClientInfo.address}</div>
+                  <div>Client Email: {product.wonClientInfo.email}</div>
+                </div>
+              )
+            }
+          })}
         </article>
       </section>
     </>

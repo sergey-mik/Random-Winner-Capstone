@@ -11,14 +11,30 @@
       "fullName": "Dion Stoade",
       "email": "dstoade0@cornell.edu",
       "isStaff": false
+    },
+    {
+      "email": "alex@gmail.com",
+      "fullName": "Alex N",
+      "isStaff": false,
+      "id": 3
     }
   ],
   "customers": [
     {
       "id": 1,
+      "fullName": "Dion Stoade",
       "address": "56849 Fadel Gateway",
       "phoneNumber": "202-244-1111",
+      "email": "dstoade0@cornell.edu",
       "userId": 2
+    },
+    {
+      "id": 2,
+      "fullName": "Alex N",
+      "address": "24 Pearl St",
+      "phoneNumber": "615-244-4356",
+      "email": "alex@gmail.com",
+      "userId": 3
     }
   ],
   "employees": [
@@ -34,8 +50,8 @@
       "name": "Batman Arkham Knight (PS4)",
       "coverImage": "/images/batman-arkham-knight-ps4.jpg",
       "condition": "Vero est adipisci sed natus quasi consectetur occaecati. Modi maxime sunt officia cumque.",
-      "price": 10,
-      "productWon": "",
+      "price": 13,
+      "productWon": "two",
       "id": 1
     },
     {
@@ -53,58 +69,58 @@
       "coverImage": "/images/assassin's-creed-IV-black-flag-xbox1.jpg",
       "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
       "price": 16,
-      "productWon": "",
+      "productWon": "three",
       "id": 3
     }
   ],
   "productBids": [
     {
-      "userId": 2,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "ten",
-      "id": 1
-    },
-    {
-      "userId": 1,
+      "userId": 3,
       "name": "Batman Arkham Knight (PS4)",
       "productId": 1,
       "cellOrder": "one",
-      "id": 2
+      "id": 1
     },
     {
-      "userId": 2,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "two",
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "five",
-      "id": 4
-    },
-    {
-      "userId": 1,
+      "userId": 3,
       "name": "Batman Arkham Knight (PS4)",
       "productId": 1,
       "cellOrder": "six",
+      "id": 2
+    },
+    {
+      "userId": 3,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 1,
+      "cellOrder": "five",
+      "id": 3
+    },
+    {
+      "userId": 3,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 1,
+      "cellOrder": "two",
+      "id": 4
+    },
+    {
+      "userId": 3,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 1,
+      "cellOrder": "nine",
       "id": 5
     },
     {
-      "userId": 2,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "seven",
+      "userId": 3,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 3,
+      "cellOrder": "five",
       "id": 6
     },
     {
-      "userId": 1,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "eight",
+      "userId": 2,
+      "name": "Call Of Duty Ghosts (Xbox One)",
+      "productId": 2,
+      "cellOrder": "four",
       "id": 7
     },
     {
@@ -120,6 +136,90 @@
       "productId": 1,
       "cellOrder": "four",
       "id": 9
+    },
+    {
+      "userId": 2,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 1,
+      "cellOrder": "seven",
+      "id": 10
+    },
+    {
+      "userId": 2,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 1,
+      "cellOrder": "ten",
+      "id": 11
+    },
+    {
+      "userId": 2,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 1,
+      "cellOrder": "eight",
+      "id": 12
+    },
+    {
+      "userId": 2,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 3,
+      "cellOrder": "ten",
+      "id": 13
+    },
+    {
+      "userId": 2,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 3,
+      "cellOrder": "nine",
+      "id": 14
+    },
+    {
+      "userId": 2,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 3,
+      "cellOrder": "one",
+      "id": 15
+    },
+    {
+      "userId": 2,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 3,
+      "cellOrder": "two",
+      "id": 16
+    },
+    {
+      "userId": 2,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 3,
+      "cellOrder": "four",
+      "id": 17
+    },
+    {
+      "userId": 2,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 3,
+      "cellOrder": "six",
+      "id": 18
+    },
+    {
+      "userId": 2,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 3,
+      "cellOrder": "eight",
+      "id": 19
+    },
+    {
+      "userId": 2,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 3,
+      "cellOrder": "seven",
+      "id": 20
+    },
+    {
+      "userId": 2,
+      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "productId": 3,
+      "cellOrder": "three",
+      "id": 21
     }
   ]
 }
