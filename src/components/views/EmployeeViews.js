@@ -12,7 +12,6 @@ export const EmployeeViews = () => {
         element={
           <>
             <h1>Random Winner</h1>
-
             <Outlet />
           </>
         }

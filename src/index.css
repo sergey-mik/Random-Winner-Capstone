@@ -28,17 +28,21 @@ h6 {
 	Universal selector and psuedo selectors for inserting content before or after any element.
 	1. Use border-box over default content-box for box model.	
 --*/
-*, *:before, *:after{
-	-moz-box-sizing:border-box;			/*1*/
-	-webkit-box-sizing:border-box;		/*1*/
-	box-sizing:border-box;				/*1*/
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box; /*1*/
+  -webkit-box-sizing: border-box; /*1*/
+  box-sizing: border-box; /*1*/
 }
 
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -52,11 +56,11 @@ html {
   margin: auto;
   width: 155px;
   height: 75px;
-  border: 2px solid rgb(0, 0, 0);
+  /* border: 2px solid rgb(0, 0, 0); */
   /* border: 0px solid green; */
-  /* -webkit-box-shadow: 0 0 20px green;
+  -webkit-box-shadow: 0 0 20px green;
   -moz-box-shadow: 0 0 20px green;
-  box-shadow: 0 0 20px green; */
+  box-shadow: 0 0 20px green;
 }
 
 .cover {
@@ -142,10 +146,10 @@ html {
   width: 155px;
   height: 75px;
   border: 2px solid rgb(0, 0, 0);
-  /* border: 1px solid red;
+   border: 1px solid red;
   -webkit-animation: pusate 0.5s infinite alternate;
   -moz-animation: pusate 0.5s infinite alternate;
-  -animation: pusate 0.5s infinite alternate; */
+  -animation: pusate 0.5s infinite alternate;
 }
 
 /* Media Queries for Playground */

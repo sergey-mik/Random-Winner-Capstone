@@ -96,7 +96,7 @@ export const PlayGround = () => {
 
     if (evt.target.className === 'cells') {
       document.getElementById('box1').innerHTML = 'Excellent choice!'
-      // evt.target.style.border = '1px solid red'
+      evt.target.style.border = '1px solid red'
     }
     evt.dataTransfer.dropEffect = 'move'
   }
@@ -118,7 +118,7 @@ export const PlayGround = () => {
     } else {
       const data = evt.dataTransfer.getData('credit')
       console.log(data)
-      // evt.target.style.animation = 'pusate .5s infinite alternate'
+      evt.target.style.animation = 'pusate .5s infinite alternate'
       document.getElementById('box1').innerHTML = 'Place more bids!'
       evt.target.style.border = ''
     }
@@ -156,7 +156,6 @@ export const PlayGround = () => {
       ids.splice(i, 1)
       divs = [].slice.call(divs, 1)
     }
-    // item = document.getElementsByClassName('item-1')
     divId = item[0].id
     console.log(divId)
     // console.log(cells)
@@ -217,8 +216,7 @@ export const PlayGround = () => {
   const Money = () => {
     return (
       <div id="box3">
-        Money Spent: $
-        {(product.price / 10) * userBids?.length.toFixed(2)}
+        Money Spent: ${((product.price / 10) * userBids?.length).toFixed(2)}
       </div>
     )
   }
@@ -245,8 +243,8 @@ export const PlayGround = () => {
           <div
             style={{
               backgroundColor: '#90dda7',
-              width: '151px',
-              height: '71px',
+              width: '155px',
+              height: '75px',
             }}
           ></div>
         )

@@ -47,75 +47,24 @@
   "products": [
     {
       "userId": 1,
-      "name": "Batman Arkham Knight (PS4)",
-      "coverImage": "/images/batman-arkham-knight-ps4.jpg",
-      "condition": "Vero est adipisci sed natus quasi consectetur occaecati. Modi maxime sunt officia cumque.",
-      "price": 13,
-      "productWon": "two",
-      "id": 1
-    },
-    {
-      "userId": 1,
       "name": "Call Of Duty Ghosts (Xbox One)",
       "coverImage": "/images/call-of-duty-ghosts-xbox1.jpg",
       "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
       "price": 19,
-      "productWon": "",
+      "productWon": "ten",
       "id": 2
     },
     {
       "userId": 1,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "coverImage": "/images/assassin's-creed-IV-black-flag-xbox1.jpg",
+      "name": "Batman Arkham Knight (PS4)",
+      "coverImage": "/images/batman-arkham-knight-ps4.jpg",
       "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
-      "price": 16,
-      "productWon": "three",
+      "price": 21,
+      "productWon": "",
       "id": 3
     }
   ],
   "productBids": [
-    {
-      "userId": 3,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "one",
-      "id": 1
-    },
-    {
-      "userId": 3,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "six",
-      "id": 2
-    },
-    {
-      "userId": 3,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "five",
-      "id": 3
-    },
-    {
-      "userId": 3,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "two",
-      "id": 4
-    },
-    {
-      "userId": 3,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "nine",
-      "id": 5
-    },
-    {
-      "userId": 3,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 3,
-      "cellOrder": "five",
-      "id": 6
-    },
     {
       "userId": 2,
       "name": "Call Of Duty Ghosts (Xbox One)",
@@ -125,101 +74,108 @@
     },
     {
       "userId": 2,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "three",
+      "name": "Call Of Duty Ghosts (Xbox One)",
+      "productId": 2,
+      "cellOrder": "one",
       "id": 8
     },
     {
       "userId": 2,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "four",
+      "name": "Call Of Duty Ghosts (Xbox One)",
+      "productId": 2,
+      "cellOrder": "five",
       "id": 9
     },
     {
       "userId": 2,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "seven",
+      "name": "Call Of Duty Ghosts (Xbox One)",
+      "productId": 2,
+      "cellOrder": "eight",
       "id": 10
     },
     {
       "userId": 2,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
+      "name": "Call Of Duty Ghosts (Xbox One)",
+      "productId": 2,
       "cellOrder": "ten",
       "id": 11
     },
     {
       "userId": 2,
       "name": "Batman Arkham Knight (PS4)",
-      "productId": 1,
-      "cellOrder": "eight",
+      "productId": 3,
+      "cellOrder": "six",
       "id": 12
     },
     {
       "userId": 2,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "name": "Batman Arkham Knight (PS4)",
       "productId": 3,
-      "cellOrder": "ten",
+      "cellOrder": "three",
       "id": 13
     },
     {
-      "userId": 2,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 3,
-      "cellOrder": "nine",
+      "userId": 3,
+      "name": "Call Of Duty Ghosts (Xbox One)",
+      "productId": 2,
+      "cellOrder": "three",
       "id": 14
     },
     {
-      "userId": 2,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 3,
-      "cellOrder": "one",
+      "userId": 3,
+      "name": "Call Of Duty Ghosts (Xbox One)",
+      "productId": 2,
+      "cellOrder": "two",
       "id": 15
     },
     {
-      "userId": 2,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 3,
-      "cellOrder": "two",
+      "userId": 3,
+      "name": "Call Of Duty Ghosts (Xbox One)",
+      "productId": 2,
+      "cellOrder": "six",
       "id": 16
     },
     {
-      "userId": 2,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 3,
-      "cellOrder": "four",
+      "userId": 3,
+      "name": "Call Of Duty Ghosts (Xbox One)",
+      "productId": 2,
+      "cellOrder": "seven",
       "id": 17
     },
     {
-      "userId": 2,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
-      "productId": 3,
-      "cellOrder": "six",
+      "userId": 3,
+      "name": "Call Of Duty Ghosts (Xbox One)",
+      "productId": 2,
+      "cellOrder": "nine",
       "id": 18
     },
     {
-      "userId": 2,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "userId": 3,
+      "name": "Batman Arkham Knight (PS4)",
       "productId": 3,
-      "cellOrder": "eight",
+      "cellOrder": "nine",
       "id": 19
     },
     {
-      "userId": 2,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "userId": 3,
+      "name": "Batman Arkham Knight (PS4)",
       "productId": 3,
-      "cellOrder": "seven",
+      "cellOrder": "two",
       "id": 20
     },
     {
-      "userId": 2,
-      "name": "Assassin's Creed IV Black Flag (Xbox One)",
+      "userId": 3,
+      "name": "Batman Arkham Knight (PS4)",
       "productId": 3,
-      "cellOrder": "three",
+      "cellOrder": "eight",
       "id": 21
+    },
+    {
+      "userId": 3,
+      "name": "Batman Arkham Knight (PS4)",
+      "productId": 3,
+      "cellOrder": "five",
+      "id": 22
     }
   ]
 }

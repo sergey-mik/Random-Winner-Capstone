@@ -20,6 +20,9 @@ export const Product = ({ productObject, isStaff, getAllProducts }) => {
 
   return (
     <section className="product">
+
+        <img alt="cover" src={productObject.coverImage} />
+
       <header className="product_header">
         {isStaff ? (
           `${productObject.name}`
