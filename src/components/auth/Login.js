@@ -29,31 +29,38 @@ export const Login = () => {
     }
 
     return (
-        <main className="container--login">
-            <section>
-                <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Random Winner</h1>
-                    <h2>Please sign in</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
-                        <input type="email"
-                            value={email}
-                            onChange={evt => set(evt.target.value)}
-                            className="form-control"
-                            placeholder="Email address"
-                            required autoFocus />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
-                            Sign in
-                        </button>
-                    </fieldset>
-                </form>
+      <main className="container--login">
+        <h1 className="tc f-6 mb2 mt5">RANDOM WINNER</h1>
+        <section className="measure center">
+          <form className="shadow br3" onSubmit={handleLogin}>
+            <h2 className="pt3">Please Sign In</h2>
+            <fieldset>
+              <div className="db fw6 lh-copy tl pa3">
+                <label htmlFor="inputEmail"> Email address: </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(evt) => set(evt.target.value)}
+                  className="pa2 w-100"
+                  placeholder=""
+                  required
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <button
+                className="f6 link dim br3 ph3 pv2 dib white bg-near-black"
+                type="submit"
+              >
+                Sign in
+              </button>
+            </fieldset>
+            <section className="link--register pa3">
+              <Link to="/register">Not a member yet?</Link>
             </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
-            </section>
-        </main>
+          </form>
+        </section>
+      </main>
     )
 }
 

@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react'
 export const ProfilePage = () => {
   // Provide initial state for profile
   const [profile, updateProfile] = useState({
+    fullName: '',
     address: '',
     phoneNumber: '',
+    email: '',
     userId: 0,
   })
   const [feedback, setFeedback] = useState('')
@@ -54,20 +56,20 @@ export const ProfilePage = () => {
       >
         {feedback}
       </div>
-      <form className="profile">
-        <h2 className="profile__title">Customer Profile</h2>
+      <form className="shadow measure center br3">
+        <h2 className="pt3">Customer Profile</h2>
 
         <fieldset>
-          <div className="form-group">
+          <div className="b fw6 lh-copy tl">
             <label htmlFor="specialty">Full Name:</label>
             <input
               type="text"
-              className="form-control"
+              className="pa2 w-100"
               value={profile.fullName}
               onChange={(evt) => {
                 //Update name property
                 const copy = { ...profile }
-                copy.address = evt.target.value
+                copy.fullName = evt.target.value
                 updateProfile(copy)
               }}
             />
@@ -75,11 +77,11 @@ export const ProfilePage = () => {
         </fieldset>
 
         <fieldset>
-          <div className="form-group">
+          <div className="db fw6 lh-copy tl">
             <label htmlFor="specialty">Address:</label>
             <input
               type="text"
-              className="form-control"
+              className="pa2 w-100"
               value={profile.address}
               onChange={(evt) => {
                 //Update address property
@@ -92,11 +94,11 @@ export const ProfilePage = () => {
         </fieldset>
 
         <fieldset>
-          <div className="form-group">
+          <div className="db fw6 lh-copy tl">
             <label htmlFor="name">Phone Number:</label>
             <input
               type="tel"
-              className="form-control"
+              className="pa2 w-100"
               value={profile.phoneNumber}
               onChange={(evt) => {
                 //Update phone# property
@@ -109,16 +111,16 @@ export const ProfilePage = () => {
         </fieldset>
 
         <fieldset>
-          <div className="form-group">
+          <div className="db fw6 lh-copy tl">
             <label htmlFor="specialty">Email:</label>
             <input
               type="text"
-              className="form-control"
+              className="pa2 w-100"
               value={profile.email}
               onChange={(evt) => {
                 //Update address property
                 const copy = { ...profile }
-                copy.address = evt.target.value
+                copy.email = evt.target.value
                 updateProfile(copy)
               }}
             />
@@ -129,7 +131,7 @@ export const ProfilePage = () => {
           onClick={(clickEvent) => {
             handleSaveButtonClick(clickEvent)
           }}
-          className="btn btn-primary"
+          className="f6 link dim br3 ph3 pv2 mt2 mb3 dib white bg-near-black"
         >
           Save Profile
         </button>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export const CustomerSummary = () => {
   const [productBids, setProductBids] = useState([])
   const [filteredProductBids, setFilteredProductBids] = useState([])
-  
+
   const [clients, setClients] = useState([])
   const [products, setProducts] = useState([])
   const [bids, setBids] = useState([])
@@ -43,7 +43,10 @@ export const CustomerSummary = () => {
     if (product.productWon) {
       bids.map((bid) => {
         if (bid.userId === randomUserObject.id) {
-          if ((bid.productId === product.id) && (product.productWon === bid.cellOrder)) {
+          if (
+            bid.productId === product.id &&
+            product.productWon === bid.cellOrder
+          ) {
             product.wonCustomerId = bid.userId
           }
         }
@@ -74,47 +77,63 @@ export const CustomerSummary = () => {
     setFilteredProductBids(myBids)
   }, [productBids])
 
-
   return (
     <>
-      <section>
-        <h2>Summary</h2>
-
-        <article className="">
-          {filteredProductBids.map((bid) => (
-            <div key={bid.id}>
-              Your Bids:
-              <Link to={`/products/${bid.productId}`}> {bid.name}</Link>
-            </div>
-          ))}
-
+      <section className="measure center">
+        <article className="shadow br3 ma3 grow bw3">
+          <h2 className="mt4 pt3">Product Won</h2>
           {WonProducts.map((product) => {
             if (
               product.wonCustomerId &&
               randomUserObject.id === product.wonCustomerId
             ) {
               return (
-                <div key={product.id}>
-                  Product Won:
-                  <Link to={`/products/${product.id}`}>{product.name}</Link>
+                <div className="pb2" key={product.id}>
+                  <Link
+                    className="link underline-hover f4 dark-green"
+                    to={`/products/${product.id}`}
+                  >
+                    {product.name}
+                  </Link>
                 </div>
               )
             }
           })}
+        </article>
 
+        <article className="shadow br3 ma3 grow bw3">
+          <h2 className="mt4 pt3">Product Lost</h2>
           {WonProducts.map((product) => {
             if (
               product.productWon &&
               randomUserObject.id !== product.wonCustomerId
             ) {
               return (
-                <div key={product.id}>
-                  Product Lost:
-                  <Link to={`/products/${product.id}`}>{product.name}</Link>
+                <div className="pb2" key={product.id}>
+                  <Link
+                    className="link underline-hover f4 light-red"
+                    to={`/products/${product.id}`}
+                  >
+                    {product.name}
+                  </Link>
                 </div>
               )
             }
           })}
+        </article>
+
+        <article className="shadow br3 ma3 grow bw3">
+          <h2 className="mt4 pt3">Your Bids</h2>
+          {filteredProductBids.map((bid) => (
+            <div className="pb2" key={bid.id}>
+              <Link
+                className="link underline-hover f4 dark-blue"
+                to={`/products/${bid.productId}`}
+              >
+                {bid.name}
+              </Link>
+            </div>
+          ))}
         </article>
       </section>
     </>

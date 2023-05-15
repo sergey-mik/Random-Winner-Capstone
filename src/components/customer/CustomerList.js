@@ -49,22 +49,28 @@ export const CustomerList = () => {
     return product
   })
 
-  // console.log(ClientInfo)
   return (
     <>
-      <section>
-        <h2>Client Activity</h2>
+      <section className="measure center shadow br3 ma3 grow bw3">
+        <h2 className="mt4 pt3">Ready To Ship</h2>
 
-        <article className="">
+        <article>
           {ClientInfo.map((product) => {
             if (product.wonClientInfo) {
               return (
-                <div key={product.id}>
-                  Product Name: {product.name}
-                  <div>Client Name: {product.wonClientInfo.fullName}</div>
-                  <div>Client Address: {product.wonClientInfo.address}</div>
-                  <div>Client Email: {product.wonClientInfo.email}</div>
-                </div>
+                <article className="pb3" key={product.id}>
+                  <hr />
+                  <div className="pl4 pb1 tl">Product Name: {product.name}</div>
+                  <div className="pl5 tl">
+                    Client Name: {product.wonClientInfo.fullName}
+                  </div>
+                  <div className="pl5 tl">
+                    Client Address: {product.wonClientInfo.address}
+                  </div>
+                  <div className="pl5 tl">
+                    Client Email: {product.wonClientInfo.email}
+                  </div>
+                </article>
               )
             }
           })}

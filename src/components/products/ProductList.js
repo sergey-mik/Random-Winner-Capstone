@@ -48,9 +48,8 @@ export const ProductList = ({ searchTermState }) => {
 
   return (
     <>
-      <h2>List of Products</h2>
 
-      <article className="products">
+      <article className='product-container'>
         {filteredProducts.map((product) => (
           <Product
             isStaff={randomUserObject.staff}

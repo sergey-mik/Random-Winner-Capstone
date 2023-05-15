@@ -2,39 +2,53 @@
   "users": [
     {
       "id": 1,
-      "fullName": "Sergey M",
-      "email": "sergey@randomwinner.com",
+      "fullName": "Terry West",
+      "email": "terry@randomwinner.com",
       "isStaff": true
     },
     {
       "id": 2,
-      "fullName": "Dion Stoade",
-      "email": "dstoade0@cornell.edu",
+      "fullName": "Raylee Smith",
+      "email": "rsmith@gmail.com",
       "isStaff": false
     },
     {
+      "id": 3,
+      "fullName": "Alex Gillespie",
       "email": "alex@gmail.com",
-      "fullName": "Alex N",
+      "isStaff": false
+    },
+    {
+      "email": "gabby@gmail.com",
+      "fullName": "Gabby Dunlap",
       "isStaff": false,
-      "id": 3
+      "id": 4
     }
   ],
   "customers": [
     {
       "id": 1,
-      "fullName": "Dion Stoade",
-      "address": "56849 Fadel Gateway",
-      "phoneNumber": "202-244-1111",
-      "email": "dstoade0@cornell.edu",
+      "fullName": "Raylee Smith",
+      "address": "56849 Fadel Gateway, Nashville TN",
+      "phoneNumber": "202-244-1313",
+      "email": "rsmith@gmail.com",
       "userId": 2
     },
     {
       "id": 2,
-      "fullName": "Alex N",
-      "address": "24 Pearl St",
-      "phoneNumber": "615-244-4356",
+      "fullName": "Alex Gillespie",
+      "address": "24 Pearl St, Boston MA",
+      "phoneNumber": "615-244-4357",
       "email": "alex@gmail.com",
       "userId": 3
+    },
+    {
+      "id": 3,
+      "fullName": "Gabby Dunlap",
+      "address": "100 Summer Ave, Springfield TX",
+      "phoneNumber": "619-256-4356",
+      "email": "gabby@gmail.com",
+      "userId": 4
     }
   ],
   "employees": [
@@ -47,135 +61,78 @@
   "products": [
     {
       "userId": 1,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "coverImage": "/images/call-of-duty-ghosts-xbox1.jpg",
-      "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
-      "price": 19,
-      "productWon": "ten",
-      "id": 2
-    },
-    {
-      "userId": 1,
       "name": "Batman Arkham Knight (PS4)",
       "coverImage": "/images/batman-arkham-knight-ps4.jpg",
       "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
       "price": 21,
       "productWon": "",
-      "id": 3
-    }
-  ],
-  "productBids": [
+      "id": 2
+    },
     {
-      "userId": 2,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 2,
-      "cellOrder": "four",
+      "userId": 1,
+      "name": "Assassin's Creed IV (Xbox One)",
+      "coverImage": "/images/assassin's-creed-IV-black-flag-xbox1.jpg",
+      "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
+      "price": 16,
+      "productWon": "",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "name": "Watch Dogs (Xbox One)",
+      "coverImage": "/images/watch-dogs-xbox1.jpg",
+      "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
+      "price": 23,
+      "productWon": "",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "name": "Madden NFL 15 (PS4)",
+      "coverImage": "/images/madden-nfl-15-ps4.jpg",
+      "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
+      "price": 9,
+      "productWon": "",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "name": "The Division (PS4)",
+      "coverImage": "/images/the-division-ps4.jpg",
+      "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
+      "price": 17,
+      "productWon": "",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "name": "Gran Turismo 6 (PS3)",
+      "coverImage": "/images/gran-turismo-6-ps3.jpg",
+      "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
+      "price": 3,
+      "productWon": "eight",
       "id": 7
     },
     {
-      "userId": 2,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 2,
-      "cellOrder": "one",
+      "userId": 1,
+      "name": "The Last Of Us (PS4)",
+      "coverImage": "/images/the-last-of-us-ps4.jpg",
+      "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
+      "price": 24,
+      "productWon": "",
       "id": 8
     },
     {
-      "userId": 2,
+      "userId": 1,
       "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 2,
-      "cellOrder": "five",
+      "coverImage": "/images/call-of-duty-ghosts-xbox1.jpg",
+      "condition": "Product Condition: Game plays perfectly. May have minor scratches. Not a previous rental.",
+      "price": 27,
+      "productWon": "",
       "id": 9
-    },
-    {
-      "userId": 2,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 2,
-      "cellOrder": "eight",
-      "id": 10
-    },
-    {
-      "userId": 2,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 2,
-      "cellOrder": "ten",
-      "id": 11
-    },
-    {
-      "userId": 2,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 3,
-      "cellOrder": "six",
-      "id": 12
-    },
-    {
-      "userId": 2,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 3,
-      "cellOrder": "three",
-      "id": 13
-    },
-    {
-      "userId": 3,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 2,
-      "cellOrder": "three",
-      "id": 14
-    },
-    {
-      "userId": 3,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 2,
-      "cellOrder": "two",
-      "id": 15
-    },
-    {
-      "userId": 3,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 2,
-      "cellOrder": "six",
-      "id": 16
-    },
-    {
-      "userId": 3,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 2,
-      "cellOrder": "seven",
-      "id": 17
-    },
-    {
-      "userId": 3,
-      "name": "Call Of Duty Ghosts (Xbox One)",
-      "productId": 2,
-      "cellOrder": "nine",
-      "id": 18
-    },
-    {
-      "userId": 3,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 3,
-      "cellOrder": "nine",
-      "id": 19
-    },
-    {
-      "userId": 3,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 3,
-      "cellOrder": "two",
-      "id": 20
-    },
-    {
-      "userId": 3,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 3,
-      "cellOrder": "eight",
-      "id": 21
-    },
-    {
-      "userId": 3,
-      "name": "Batman Arkham Knight (PS4)",
-      "productId": 3,
-      "cellOrder": "five",
-      "id": 22
     }
+  ],
+  "productBids": [
+
   ]
 }

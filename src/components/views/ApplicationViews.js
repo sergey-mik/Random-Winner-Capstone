@@ -10,7 +10,7 @@ const randomUserObject = JSON.parse(localRandomUser)
     return <EmployeeViews />
   } else {
     // Return customer views
-    return <CustomerViews />
+    return <CustomerViews /> 
   }
 
 }

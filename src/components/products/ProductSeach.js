@@ -1,7 +1,8 @@
 export const ProductSearch = ({ setterFunction }) => {
   return (
-    <div>
+    <div className="tc mb2">
       <input
+        className="pa2 tc"
         onChange={(changeEvent) => {
           setterFunction(changeEvent.target.value)
         }}

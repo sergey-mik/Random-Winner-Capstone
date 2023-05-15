@@ -11,8 +11,9 @@ export const CustomerViews = () => {
         path="/"
         element={
           <>
-            <h1>Random Winner</h1>
-
+          <div className="pt4">
+            <h1 className='tc f-6 mb2 mt2 '>RANDOM WINNER</h1>
+          </div>
             <Outlet />
           </>
         }

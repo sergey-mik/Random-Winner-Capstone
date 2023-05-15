@@ -1,0 +1,8 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* background-image: url('http://i.giphy.com/5lF3pQpdquCBy.gif');
+  background-repeat: no-repeat;
+  background-size: cover; */
+}

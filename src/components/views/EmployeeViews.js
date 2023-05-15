@@ -11,11 +11,14 @@ export const EmployeeViews = () => {
         path="/"
         element={
           <>
-            <h1>Random Winner</h1>
+            <div className="pt4">
+              <h1 className="tc f-6 mb2 mt2">RANDOM WINNER</h1>
+            </div>
             <Outlet />
+            
           </>
         }
-      >
+        >
         <Route path="products" element={<ProductContainer />} />
         <Route path="addProduct" element={<AddProduct />} />
         <Route path="products/:productId" element={<PlayGround />} />

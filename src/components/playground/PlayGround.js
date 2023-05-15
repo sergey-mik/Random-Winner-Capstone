@@ -1,16 +1,15 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import credit from '../../img/dollar.png'
 import bids from '../../img/bid.png'
 import won from '../../img/won.gif'
 import lose from '../../img/lose.gif'
+import './playground.css'
 
 export const PlayGround = () => {
   const [product, postToProduct] = useState({})
   const [timeLeft, setTimeLeft] = useState(null)
   const { productId } = useParams()
-  // const [playerBids, setPlayerBids] = useState([])
-  // const ref = useRef(null)
   const [dropedd, post] = useState({
     userId: '',
     name: '',
@@ -23,9 +22,7 @@ export const PlayGround = () => {
 
   //----------------- get product from JSON ---------->
   const getProducts = () => {
-    fetch(
-      `http://localhost:8088/products?_embed=productBids&id=${productId}`
-    )
+    fetch(`http://localhost:8088/products?_embed=productBids&id=${productId}`)
       .then((response) => response.json())
       .then((data) => {
         const productObject = data[0]
@@ -94,7 +91,7 @@ export const PlayGround = () => {
     copyCellOrder.cellOrder = evt.target.id
     post(copyCellOrder)
 
-    if (evt.target.className === 'cells') {
+    if (evt.target.className === 'cells tl bg-white') {
       document.getElementById('box1').innerHTML = 'Excellent choice!'
       evt.target.style.border = '1px solid red'
     }
@@ -102,8 +99,8 @@ export const PlayGround = () => {
   }
 
   const handleDragLeave = (evt) => {
-    if (evt.target.className === 'cells') {
-      document.getElementById('box1').innerHTML = 'Drop inside the box!'
+    if (evt.target.className === 'cells tl bg-white') {
+      document.getElementById('box1').innerHTML = 'Drop inside the cell!'
       evt.target.style.border = ''
     }
   }
@@ -113,12 +110,12 @@ export const PlayGround = () => {
     postBidsToAPIOnDrop(evt)
 
     if (product.productBids.length === 9) {
+      evt.target.style.border = ''
       blink()
       setTimeLeft(5)
     } else {
       const data = evt.dataTransfer.getData('credit')
       console.log(data)
-      evt.target.style.animation = 'pusate .5s infinite alternate'
       document.getElementById('box1').innerHTML = 'Place more bids!'
       evt.target.style.border = ''
     }
@@ -181,45 +178,22 @@ export const PlayGround = () => {
     return cell.cellOrder
   })
 
-  // useEffect(() => {
-  //   const userBids = product.productBids?.map((cell) => {
-  //       if (cell.userId === randomUserObject.id) {
-  //         return cell.cellOrder
-  //       }
-  //     })
-  //     .filter((x) => x !== undefined)
-  //   setPlayerBids(userBids)
-  // }, [product])
-
   // compare current user and the one already placed bids
-  const userBids = product.productBids?.map((cell) => {
-    if (cell.userId === randomUserObject.id) {
-      return cell.cellOrder
-    }
-  })
-  .filter((x) => x !== undefined)
-
-
-  const notUserBids = product.productBids?.map((cell) => {
-      if (cell.userId !== randomUserObject.id) {
+  const userBids = product.productBids
+    ?.map((cell) => {
+      if (cell.userId === randomUserObject.id) {
         return cell.cellOrder
       }
     })
     .filter((x) => x !== undefined)
 
-  // console.log(notUserBids)
-
-  const Credit = () => {
-    return <div id="box3">One Credit = ${product.price / 10}</div>
-  }
-
-  const Money = () => {
-    return (
-      <div id="box3">
-        Money Spent: ${((product.price / 10) * userBids?.length).toFixed(2)}
-      </div>
-    )
-  }
+  const notUserBids = product.productBids
+    ?.map((cell) => {
+      if (cell.userId !== randomUserObject.id) {
+        return cell.cellOrder
+      }
+    })
+    .filter((x) => x !== undefined)
 
   // loads credit and used images inside appropriate cells
   const Cell = ({ num }) => {
@@ -275,11 +249,11 @@ export const PlayGround = () => {
 
   return (
     <>
-      <div>{product.name}</div>
+      <div className="pa3 mb3 f2">{product.name}</div>
 
       <div className="playground">
         <div
-          className="cells"
+          className="cells tl bg-white"
           id="one"
           onDragOver={(evt) => handleOnDragOver(evt)}
           onDragLeave={(evt) => handleDragLeave(evt)}
@@ -289,7 +263,7 @@ export const PlayGround = () => {
           <Winner num="one" />
         </div>
         <div
-          className="cells"
+          className="cells tl bg-white"
           id="two"
           onDragOver={(evt) => handleOnDragOver(evt)}
           onDragLeave={(evt) => handleDragLeave(evt)}
@@ -299,7 +273,7 @@ export const PlayGround = () => {
           <Winner num="two" />
         </div>
         <div
-          className="cells"
+          className="cells tl bg-white"
           id="three"
           onDragOver={(evt) => handleOnDragOver(evt)}
           onDragLeave={(evt) => handleDragLeave(evt)}
@@ -309,7 +283,7 @@ export const PlayGround = () => {
           <Winner num="three" />
         </div>
         <div
-          className="cells"
+          className="cells tl bg-white"
           id="four"
           onDragOver={(evt) => handleOnDragOver(evt)}
           onDragLeave={(evt) => handleDragLeave(evt)}
@@ -319,7 +293,7 @@ export const PlayGround = () => {
           <Winner num="four" />
         </div>
         <div
-          className="cells"
+          className="cells tl bg-white"
           id="five"
           onDragOver={(evt) => handleOnDragOver(evt)}
           onDragLeave={(evt) => handleDragLeave(evt)}
@@ -329,7 +303,7 @@ export const PlayGround = () => {
           <Winner num="five" />
         </div>
         <div
-          className="cells"
+          className="cells tl bg-white"
           id="six"
           onDragOver={(evt) => handleOnDragOver(evt)}
           onDragLeave={(evt) => handleDragLeave(evt)}
@@ -339,7 +313,7 @@ export const PlayGround = () => {
           <Winner num="six" />
         </div>
         <div
-          className="cells"
+          className="cells tl bg-white"
           id="seven"
           onDragOver={(evt) => handleOnDragOver(evt)}
           onDragLeave={(evt) => handleDragLeave(evt)}
@@ -349,7 +323,7 @@ export const PlayGround = () => {
           <Winner num="seven" />
         </div>
         <div
-          className="cells"
+          className="cells tl bg-white"
           id="eight"
           onDragOver={(evt) => handleOnDragOver(evt)}
           onDragLeave={(evt) => handleDragLeave(evt)}
@@ -359,7 +333,7 @@ export const PlayGround = () => {
           <Winner num="eight" />
         </div>
         <div
-          className="cells"
+          className="cells tl bg-white"
           id="nine"
           onDragOver={(evt) => handleOnDragOver(evt)}
           onDragLeave={(evt) => handleDragLeave(evt)}
@@ -369,7 +343,7 @@ export const PlayGround = () => {
           <Winner num="nine" />
         </div>
         <div
-          className="cells"
+          className="cells tl bg-white"
           id="ten"
           onDragOver={(evt) => handleOnDragOver(evt)}
           onDragLeave={(evt) => handleDragLeave(evt)}
@@ -379,14 +353,16 @@ export const PlayGround = () => {
           <Winner num="ten" />
         </div>
 
-        <div id="cover">
+        <div className="tl" id="cover">
           <CoverImage />
         </div>
 
-        <h3 id="info">Your credit</h3>
+        <div className="pb3 pt4" id="info">
+          Your Credit
+        </div>
 
         {/* <!-- Player's Cell --> */}
-        <div id="div1">
+        <div className="tl bg-white" id="div1">
           <img
             className="player"
             src={credit}
@@ -397,14 +373,23 @@ export const PlayGround = () => {
             name="credit.png"
           />
         </div>
-        <br></br>
-        <div className="transbox">
-          <div id="box1"></div>
-        </div>
-        <div id="box2">DO not spend MORE than you can afford to LOSE!</div>
+      </div>
 
-        <Credit />
-        <Money />
+      <div className="mt5">
+        <div id="box1">Drop inside the cell!</div>
+      </div>
+
+      <div className="pt4" id="box2">
+        DO not spend MORE than you can afford to LOSE!
+      </div>
+
+      <div className="mt5">
+        <div className="di pr6 pl6 pt1 pb1 normal bg-black-70" id="box3">
+          One Credit = ${(product.price / 10).toFixed(2)}
+        </div>
+        <div className="di pl6 pr6 pt1 pb1 normal bg-black-70" id="box3">
+          Money Spent: ${((product.price / 10) * userBids?.length).toFixed(2)}
+        </div>
       </div>
     </>
   )

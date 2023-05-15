@@ -40,16 +40,14 @@ export const AddProduct = () => {
   }
 
   return (
-    <form className="addProductForm">
-      <h2 className="addProductForm_title">Add New Product</h2>
+    <form className="shadow measure center br3">
+      <h2 className="pt3">Add New Product</h2>
       <fieldset>
-        <div className="form-group">
+        <div className="db fw6 lh-copy tl">
           <label htmlFor="condition">Product Name:</label>
           <input
-            required
-            autoFocus
             type="text"
-            className="form-control"
+            className="pa2 w-100"
             value={addProduct.name}
             onChange={(evt) => {
               const copy = { ...addProduct }
@@ -61,11 +59,11 @@ export const AddProduct = () => {
       </fieldset>
 
       <fieldset>
-        <div className="form-group">
+        <div className="db fw6 lh-copy tl">
           <label htmlFor="condition">Product Condition:</label>
           <input
             type="text"
-            className="form-control"
+            className="pa2 w-100"
             value={addProduct.condition}
             onChange={(evt) => {
               const copy = { ...addProduct }
@@ -77,11 +75,11 @@ export const AddProduct = () => {
       </fieldset>
 
       <fieldset>
-        <div className="form-group">
+        <div className="db fw6 lh-copy tl">
           <label htmlFor="condition">Product Image:</label>
           <input
             type="text"
-            className="form-control"
+            className="pa2 w-100"
             value={addProduct.coverImage}
             onChange={(evt) => {
               const copy = { ...addProduct }
@@ -93,11 +91,11 @@ export const AddProduct = () => {
       </fieldset>
 
       <fieldset>
-        <div className="form-group">
+        <div className="db fw6 lh-copy tl">
           <label htmlFor="price">Product Price:</label>
           <input
             type="number"
-            className="form-control"
+            className="pa2 w-100"
             value={addProduct.price}
             onChange={(evt) => {
               const copy = { ...addProduct }
@@ -110,7 +108,7 @@ export const AddProduct = () => {
 
       <button
         onClick={(event) => handleSaveButtonClick(event)}
-        className="btn btn-primary"
+        className="f6 link dim br3 ph3 pv2 mt2 mb3 dib white bg-near-black"
       >
         Add Product
       </button>

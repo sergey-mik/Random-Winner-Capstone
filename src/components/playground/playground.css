@@ -57,10 +57,10 @@ html {
   width: 155px;
   height: 75px;
   /* border: 2px solid rgb(0, 0, 0); */
-  /* border: 0px solid green; */
+  /* border: 0px solid green;
   -webkit-box-shadow: 0 0 20px green;
-  -moz-box-shadow: 0 0 20px green;
-  box-shadow: 0 0 20px green;
+  -moz-box-shadow: 0 0 20px green; */
+  box-shadow: 0 0 20px gray;
 }
 
 .cover {
@@ -146,7 +146,7 @@ html {
   width: 155px;
   height: 75px;
   border: 2px solid rgb(0, 0, 0);
-   border: 1px solid red;
+  border: 1px solid red;
   -webkit-animation: pusate 0.5s infinite alternate;
   -moz-animation: pusate 0.5s infinite alternate;
   -animation: pusate 0.5s infinite alternate;
@@ -313,8 +313,7 @@ html {
   margin-top: 9px;
   width: 300px;
   text-align: center;
-  color: #396;
-  font-weight: 100;
+  color: rgba(28, 180, 28, 0.884);
   font-size: 25px;
 }
 
@@ -324,13 +323,12 @@ html {
   margin-left: auto;
   margin-right: auto;
   min-height: 35px;
-  margin-top: 10px;
-  width: 700px;
+  width: 900px;
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 #box3 {
-  text-align: center;
-  margin-top: 10px;
+  color: white;
+  font-size: 25px;
 }
