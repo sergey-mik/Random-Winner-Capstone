@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
 import credit from '../../img/dollar.png'
 import bids from '../../img/bid.png'
@@ -21,18 +21,18 @@ export const PlayGround = () => {
   const randomUserObject = JSON.parse(localRandomUser)
 
   //----------------- get product from JSON ---------->
-  const getProducts = () => {
+  const getProducts = useCallback(() => {
     fetch(`http://localhost:8088/products?_embed=productBids&id=${productId}`)
       .then((response) => response.json())
       .then((data) => {
         const productObject = data[0]
         postToProduct(productObject)
       })
-  }
+  }, [productId, postToProduct])
 
   useEffect(() => {
     getProducts()
-  }, [productId])
+  }, [getProducts])
 
   //------------------ post bids to product ------------------->
   const postBidsToAPIOnDrop = () => {
@@ -58,26 +58,29 @@ export const PlayGround = () => {
   }
 
   // --------------- Update productWon in Products --------->
-  const updateWonProduct = (winner) => {
-    const copy = {
-      userId: product.userId,
-      name: product.name,
-      coverImage: product.coverImage,
-      condition: product.condition,
-      price: product.price,
-      productWon: winner,
-    }
+  const updateWonProduct = useCallback(
+    (winner) => {
+      const copy = {
+        userId: product.userId,
+        name: product.name,
+        coverImage: product.coverImage,
+        condition: product.condition,
+        price: product.price,
+        productWon: winner,
+      }
 
-    return fetch(`http://localhost:8088/products/${product.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(copy),
-    })
-      .then((response) => response.json())
-      .then(getProducts)
-  }
+      return fetch(`http://localhost:8088/products/${product.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(copy),
+      })
+        .then((response) => response.json())
+        .then(getProducts)
+    },
+    [product, getProducts]
+  )
 
   // --------------- Handle Drag and Drop --------->
   const handleOnDragStart = (evt) => {
@@ -121,6 +124,43 @@ export const PlayGround = () => {
     }
   }
 
+  // ----Random Pick------>
+  const randomPhrase = useCallback(() => {
+    let ids = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    let divs = document.getElementsByClassName('cells')
+    let item = document.getElementsByClassName('item-1')
+    let divId
+
+    while (divs.length > 0) {
+      let i = Math.floor(Math.random() * ids.length)
+      divs[0].classList.add('item-' + ids[i])
+      ids.splice(i, 1)
+      divs = [].slice.call(divs, 1)
+    }
+
+    if (item.length > 0) {
+      divId = item[0].id
+      console.log(divId)
+      updateWonProduct(divId)
+    } else {
+      console.log('No items found')
+    }
+  }, [updateWonProduct])
+
+  const blink = () => {
+    for (let i = 0; i < 10; i++) {
+      const x = document.querySelectorAll('.cells')
+      x[i].style.animation = 'pusate .5s infinite alternate'
+    }
+  }
+
+  const BlinkNot = useCallback(() => {
+    const cells = document.querySelectorAll('.cells')
+    for (let i = 0; i < cells.length; i++) {
+      cells[i].style.animation = ''
+    }
+  }, [])
+
   // ----Timer---->
   useEffect(() => {
     if (timeLeft === 0) {
@@ -137,41 +177,8 @@ export const PlayGround = () => {
     }, 1000)
     // clear interval on re-render to avoid memory leaks
     return () => clearInterval(intervalId)
-    // add timeLeft as a dependency to re-rerun the effect when we update it
-  }, [timeLeft])
-
-  // ----Random Pick------>
-  const randomPhrase = () => {
-    let ids = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-    let divs = document.getElementsByClassName('cells')
-    let item = document.getElementsByClassName('item-1')
-    let divId
-
-    while (divs.length > 0) {
-      let i = Math.floor(Math.random() * ids.length)
-      divs[0].classList.add('item-' + ids[i])
-      ids.splice(i, 1)
-      divs = [].slice.call(divs, 1)
-    }
-    divId = item[0].id
-    console.log(divId)
-    // console.log(cells)
-    updateWonProduct(divId)
-  }
-
-  const blink = () => {
-    for (let i = 0; i < 10; i++) {
-      const x = document.querySelectorAll('.cells')
-      x[i].style.animation = 'pusate .5s infinite alternate'
-    }
-  }
-
-  const BlinkNot = () => {
-    for (let i = 0; i < 10; i++) {
-      const x = document.querySelectorAll('.cells')
-      x[i].style.animation = ''
-    }
-  }
+    // add timeLeft as a dependency to re-run the effect when we update it
+  }, [timeLeft, randomPhrase, BlinkNot])
 
   // place "used" image once credit is droped
   const cells = product.productBids?.map((cell) => {
@@ -180,20 +187,12 @@ export const PlayGround = () => {
 
   // compare current user and the one already placed bids
   const userBids = product.productBids
-    ?.map((cell) => {
-      if (cell.userId === randomUserObject.id) {
-        return cell.cellOrder
-      }
-    })
-    .filter((x) => x !== undefined)
+    ?.filter((cell) => cell.userId === randomUserObject.id)
+    .map((cell) => cell.cellOrder)
 
   const notUserBids = product.productBids
-    ?.map((cell) => {
-      if (cell.userId !== randomUserObject.id) {
-        return cell.cellOrder
-      }
-    })
-    .filter((x) => x !== undefined)
+    ?.filter((cell) => cell.userId !== randomUserObject.id)
+    .map((cell) => cell.cellOrder)
 
   // loads credit and used images inside appropriate cells
   const Cell = ({ num }) => {
